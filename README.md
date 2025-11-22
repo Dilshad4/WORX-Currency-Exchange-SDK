@@ -93,7 +93,6 @@ console.log(watched);
 ```typescript
 const client = new WorxClient({
   apiToken: 'your-token',        // Required: Your API token
-  baseUrl: 'https://exchnage.dilshad.net, // Optional: Custom API base URL
   timeout: 30000,                // Optional: Request timeout in ms (default: 30000)
   retries: 3,                    // Optional: Number of retries (default: 3)
   retryDelay: 1000              // Optional: Delay between retries in ms (default: 1000)

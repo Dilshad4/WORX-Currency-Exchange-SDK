@@ -1,67 +1,67 @@
-# WORX دراوی نەوەی SDK
+# WORX SDK ی گۆڕینی دراو
 
-TypeScript-ی پیشەیی SDK بۆ WORX v1 دراوی نەوەی API. نرخی نەوەی دراوەکان لە کاتی ڕاستەوخۆدا وەربگرە لەگەڵ تایبەتمەندییە تەواوەکان وەک cache-ی زیرەک، نەوەی بێ ئینتەرنێت، و پشتگیری زمانە جیاوازەکان.
+SDK ی تایبەتمەند بە TypeScript بۆ WORX v1 API ی گۆڕینی دراو. نرخی گۆڕینی دراوەکان بە کاتی ڕاستەقینە بەدەست بهێنە لەگەڵ تایبەتمەندییە گشتگیرەکان وەک کاشکردنی زیرەک، گۆڕین لە دەرەوەی هێڵ، و پشتگیری فرە زمان.
 
-[![npm version](https://badge.fury.io/js/exapi-currency-sdk.svg)](https://www.npmjs.com/package/exapi-currency-sdk)
+[![npm version](https://badge.fury.io/js/worx-currency-sdk.svg)](https://www.npmjs.com/package/worx-currency-sdk)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**🌍 پشتگیری زمانە فرەکان**: [English](./README.md) | [العربية](./README-ar.md)
+**🌍 پشتگیری فرە زمان**: [English](./README.md) | [العربية](./README-ar.md)
 
 ## تایبەتمەندییەکان
 
-- 🚀 **پشتگیری تەواوی TypeScript** - پێناسەی جۆرە تەواوەکان و IntelliSense
-- 💰 **نرخی نەوەی کاتی ڕاستەوخۆ** - زیاتر لە 17 دراو پشتگیری کراوە لەناویاندا دیناری عێراقی، دۆلار، یۆرۆ، پاوەند
-- 👀 **لیستی چاودێری دراوەکان** - چاودێری دراوە دیاریکراوەکان لەگەڵ شوێنکەوتنی کەسی
-- 📊 **داتای مێژوویی و شیکاری** - ڕەوتی نرخەکان، گۆڕانکارییەکان، و شیکاری تەواو
-- 🔄 **دووبارە هەوڵدانەوەی خودکار** - منطقی دووبارە هەوڵدانەوەی دروست لەگەڵ دواخستنی پلەبەپلە
-- 🚦 **سنووری نرخی زیرەک** - مامەڵەکردنی خودکار لەگەڵ سنووری نرخەکان لەگەڵ هۆشیاری بەشداریکردن
-- 🎯 **بەڕێوەبردنی بەشداریکردن** - پشتگیری پلانی خۆڕایی، پڕۆ، بزنس، پلاتینی، و تایبەت
-- 🔐 **ناساندنی پارێزراو** - ناساندنی نیشانەی Bearer لەگەڵ چارەسەرکردنی هەڵە
-- 📱 **فرە پلاتفۆرم** - بە نەرمی کار دەکات لە Node.js و وێبگەڕە نوێیەکاندا
-- 💾 **cache-ی زیرەک** - cache-ی زیرەک لەگەڵ TTL-ی دیاریکراو بۆ باشکردنی بەکارهێنانی API
-- 🔄 **polling-ی کاتی ڕاستەوخۆ** - polling-ی خودکار لەگەڵ ماوە بەڕێوەچووەکان و گەڕانەوەی هەڵەکان
-- 💱 **نەوەی بێ ئینتەرنێت** - گۆڕینی دراوەکان بە بەکارهێنانی نرخە cache کراوەکان بێ بانگکردنی API
+- 🚀 **پشتگیری تەواوی TypeScript** - پێناسەی جۆری تەواو و IntelliSense
+- 💰 **نرخی گۆڕینی کاتی ڕاستەقینە** - زیاتر لە ١٧ دراوی پشتگیریکراو لەنێوان IQD، USD، EUR، GBP
+- 👀 **لیستی چاودێریکردنی دراو** - چاودێری دراوە تایبەتەکان بە شوێنکەوتنی کەسی
+- 📊 **داتا و شیکاریی مێژووی** - ڕەوتی نرخ، گۆڕانکاری، و شیکاریی گشتگیر
+- 🔄 **دووبارە هەوڵدانەوەی خودکار** - بیرکاری دووبارە هەوڵدانەوە لەگەڵ backoff exponential
+- 🚦 **سنوردانانی نرخی زیرەک** - بەڕێوەبردنی سنووری نرخی خودکار لەگەڵ ئاگاداریی اشتراک
+- 🎯 **بەڕێوەبردنی اشتراک** - پشتگیری پلانەکانی خۆڕایی، پرۆ، بازرگانی، پلاتینیوم، و تایبەت
+- 🔐 **پشتسازیی دڵنیا** - پشتسازیی Bearer token لەگەڵ مامەڵەکردن لەگەڵ هەڵە
+- 📱 **پلاتفۆرمی کراوە** - کارکردن بە باشی لە Node.js و وێبگەڕە نوێیەکان
+- 💾 **کاشکردنی زیرەک** - کاشکردنی زیرەک لەگەڵ TTL ڕێکخستنکراو بۆ باشکردنی کۆتای API
+- 🔄 **پۆڵینگی کاتی ڕاستەقینە** - پۆڵینگی خودکار لەگەڵ ماوە بەڕێوەبراوەکان و چاکبوونەوەی هەڵە
+- 💱 **گۆڕینی دەرەوەی هێڵ** - گۆڕینی دراوەکان بە بەکارهێنانی نرخە کاشکراوەکان بەبێ بانگکردنی API
 - 🌍 **پشتگیری فرە زمان** - ناوی دراوەکان و پەیامی هەڵەکان بە ئینگلیزی، کوردی، و عەرەبی
-- ⚡ **ئادایی باشکراو** - قەبارەی پاکێجی کەمترین لەگەڵ پشتگیری tree-shaking
-- 🛡️ **بەرگەگرتن لە هەڵەکان** - چارەسەرکردنی تەواوی هەڵەکان لەگەڵ کۆدی هەڵەی ورد
+- ⚡ **باشکراوی کارایی** - قەبارەی کەمی bundle لەگەڵ پشتگیری tree-shaking
+- 🛡️ **بەرگەگرتن لە هەڵە** - مامەڵەکردنی گشتگیر لەگەڵ هەڵە لەگەڵ کۆدی هەڵەی ورد
 
 ## دامەزراندن
 
 ```bash
-npm install exapi-currency-sdk
+npm install worx-currency-sdk
 ```
 
 ```bash
-yarn add exapi-currency-sdk
+yarn add worx-currency-sdk
 ```
 
 ```bash
-pnpm add exapi-currency-sdk
+pnpm add worx-currency-sdk
 ```
 
 ## دەستپێکردنی خێرا
 
 ```typescript
-import WorxClient from 'exapi-currency-sdk';
+import WorxClient from 'worx-currency-sdk';
 
-// دەستپێکردنی client
+// دەستپێکردنی کڕیار
 const client = new WorxClient({
   apiToken: 'your-api-token-here'
 });
 
-// وەرگرتنی هەموو نرخی نەوەی بەردەست
+// بەدەستهێنانی هەموو نرخە بەردەستەکانی گۆڕین
 const rates = await client.getRates();
 console.log(rates);
 
-// وەرگرتنی دراوێکی دیاریکراو لەگەڵ مێژوو
+// بەدەستهێنانی دراوی تایبەت لەگەڵ مێژوو
 const eurData = await client.getCurrency('EUR');
 console.log(eurData.currency.price, eurData.currency.trend);
 
 // زیادکردنی دراو بۆ لیستی چاودێری
 await client.addWatchedCurrency('GBP');
 
-// وەرگرتنی دراوە چاودێریکراوەکان
+// بەدەستهێنانی دراوە چاودێریکراوەکان
 const watched = await client.getWatchedCurrencies();
 console.log(watched);
 ```
@@ -86,29 +86,24 @@ console.log(watched);
 - **KWD** - دیناری کوەیتی
 - **IQD** - دیناری عێراقی
 
-## سەرچاوەی API
+## ئاماژەی API
 
-### ڕێکخستنی client
+### ڕێکخستنی کڕیار
 
 ```typescript
 const client = new WorxClient({
-  apiToken: 'your-token',        // پێویست: نیشانەی API-ی تۆ
-  baseUrl: 'https://api.worx.dev', // ئیختیاری: ناونیشانی بنەڕەتی تایبەت بۆ API
-  timeout: 30000,                // ئیختیاری: کاتی چاوەڕوان بە میلی چرکە (بنەڕەت: 30000)
-  retries: 3,                    // ئیختیاری: ژمارەی دووبارە هەوڵدانەوەکان (بنەڕەت: 3)
-  retryDelay: 1000,              // ئیختیاری: دواخستن لە نێوان هەوڵدانەوەکان بە میلی چرکە (بنەڕەت: 1000)
-  cache: {                       // ئیختیاری: ڕێکخستنەکانی cache
-    enabled: true,               // چالاککردنی cache
-    ttl: 300000                  // 5 خولەک TTL
-  }
+  apiToken: 'your-token',        // پێویست: تۆکینی API ت
+  timeout: 30000,                // هەڵبژاردە: کاتی چاوەڕوان بە ms (بنەڕەت: 30000)
+  retries: 3,                    // هەڵبژاردە: ژمارەی دووبارە هەوڵدانەوە (بنەڕەت: 3)
+  retryDelay: 1000              // هەڵبژاردە: دواکەوتن لە نێوان دووبارە هەوڵدانەوەکان بە ms (بنەڕەت: 1000)
 });
 ```
 
-### ڕێگا سەرەکییەکان
+### شێوازەکان
 
 #### `getRates(options?: RequestOptions)`
 
-وەرگرتنی هەموو نرخی نەوەکان بەپێی ئارەزووی چاودێری بەکارهێنەر.
+بەدەستهێنانی هەموو نرخە گۆڕینەکان بە پشتبەستن بە هەڵبژاردەی چاودێریکردنی بەکارهێنەر.
 
 ```typescript
 const rates = await client.getRates();
@@ -142,87 +137,95 @@ interface RatesResponse {
 
 #### `getCurrency(currency: SupportedCurrency, options?: RequestOptions)`
 
-وەرگرتنی زانیاری ورد بۆ دراوێکی دیاریکراو لەگەڵ مێژوو و شیکاری.
+بەدەستهێنانی زانیاریی ورد بۆ دراوێکی تایبەت لەگەڵ مێژوو و شیکاری.
 
 ```typescript
 const eurData = await client.getCurrency('EUR');
 
-// وەڵام لەخۆدەگرێت:
-// - currency: زانیاری وردی دراو لەگەڵ نرخ، ڕەوت، گۆڕانکارییەکان
-// - history: ڕیزبەندی خاڵە نرخە مێژووییەکان
-// - analytics: بەرزترین، نزمترین، ناوەند نرخەکان و ژمارەی خاڵی زانیاری
+// وەڵام بریتیە لە:
+// - currency: زانیاریی ورد لەسەر دراو لەگەڵ نرخ، ڕەوت، گۆڕانکاری
+// - history: ئەرەی خاڵەکانی نرخی مێژووی
+// - analytics: نرخی بەرز، نزم، ناوەند و ژمارەی خاڵەی داتا
 ```
 
-### بەکارهێنانی پێشکەوتوو
+#### `getWatchedCurrencies(options?: RequestOptions)`
 
-#### ڕێکخستنی cache-ی زیرەک
+بەدەستهێنانی دراوە چاودێریکراوەکانی بەکارهێنەر لەگەڵ نرخە ئێستاکەیان.
 
 ```typescript
-// ڕێکخستنی ڕێکخستنەکانی cache
-const client = new WorxClient({
-  apiToken: 'your-token',
-  cache: {
-    enabled: true,
-    ttl: 300000  // 5 خولەک TTL بۆ cache
-  }
-});
+const watched = await client.getWatchedCurrencies();
 
-// پاککردنەوەی cache کاتێک پێویست دەبێت
-client.clearCache();
-
-// پشکنینی بەردەستبوونی داتای cache کراو
-const rates = await client.getRates(); // cache بەکاردێنێت ئەگەر بەردەست بێت
+// وەڵام بریتیە لە:
+// - watchedCurrencies: ئەرەی ئۆبجێکتەکانی دراوی چاودێریکراو
+// - summary: کۆی گشتی، زۆرترین ڕێگەپێدراو، شوێنە ماوەکان
+// - filters: ئامارەکان لەسەر بەردەستبوونی داتای نرخ
 ```
 
-#### polling-ی کاتی ڕاستەوخۆ
+#### `addWatchedCurrency(currency: SupportedCurrency, options?: RequestOptions)`
+
+زیادکردنی دراوێک بۆ لیستی چاودێریت.
 
 ```typescript
-// دەستپێکردنی polling بۆ نوێکردنەوەی نرخەکان
-client.startPolling({
-  interval: 60000,  // polling لە هەر خولەکێکدا
-  currencies: ['EUR', 'GBP', 'TRY'], // ئیختیاری: دراوە دیاریکراوەکان
-  onUpdate: (rates) => {
-    console.log('نرخی نوێ وەرگیرا:', rates);
-  },
-  onError: (error) => {
-    console.error('هەڵەی polling:', error.message);
-  }
-});
+const result = await client.addWatchedCurrency('GBP');
 
-// وەستاندنی polling
-client.stopPolling();
-
-// پشکنینی دۆخی polling
-const isPolling = client.isPolling();
+// وەڵام بریتیە لە:
+// - watchedCurrency: ئۆبجێکتی دراوی تازە چاودێریکراو
+// - summary: ئامارە نوێکراوەکانی لیستی چاودێری
+// - message: پەیامی سەرکەوتن
 ```
 
-#### نەوەی دراوی بێ ئینتەرنێت
+#### `removeWatchedCurrency(currency: SupportedCurrency, options?: RequestOptions)`
+
+لابردنی دراوێک لە لیستی چاودێریت.
 
 ```typescript
-// گۆڕینی دراوەکان بە بەکارهێنانی نرخە cache کراوەکان (بێ بانگکردنی API)
-const convertedAmount = client.convert(100, 'USD', 'EUR');
-if (convertedAmount !== null) {
-  console.log(`100 USD = ${convertedAmount} EUR`);
-} else {
-  console.log('نەوە بەردەست نییە - نرخەکان cache نەکراون');
-}
+const result = await client.removeWatchedCurrency('GBP');
+
+// وەڵام بریتیە لە:
+// - removed: زانیاری لەسەر دراوی لابراو
+// - summary: ئامارە نوێکراوەکانی لیستی چاودێری
+// - message: پەیامی سەرکەوتن
 ```
 
-#### ناوی دراوەکان بە زمانی فرە
+#### `getCurrencies(options?: RequestOptions)`
+
+بەدەستهێنانی هەموو دراوە بەردەستەکان لەگەڵ میتاداتا و دۆخی بەردەستبوون.
 
 ```typescript
-// وەرگرتنی ناوی دراوەکان بە زمانی جیاواز
-const eurName = client.getCurrencyName('EUR', 'en'); // "Euro"
-const eurNameKu = client.getCurrencyName('EUR', 'ku'); // "یۆرۆ"
-const eurNameAr = client.getCurrencyName('EUR', 'ar'); // "اليورو"
+const currencies = await client.getCurrencies();
 
-// بەکارهێنان لە نەرمەکاڵاکەتدا
-const displayName = client.getCurrencyName('IQD', 'ku'); // "دیناری عێراقی"
+// وەڵام بریتیە لە:
+// - currencies: ئۆبجێکت لەگەڵ ئەرەکانی چاودێریکراو، بەردەست، و ناوبەردەست
+// - summary: ئاماری گشتی
+// - metadata: دراوی بنەڕەت، دراوە پشتگیریکراوەکان، کاتی دوایین نوێکردنەوە
+```
+
+#### `getAccountInfo(options?: RequestOptions)`
+
+بەدەستهێنانی زانیاریی هەژمار لەگەڵ سنووری نرخ و وردەکاریی اشتراک.
+
+```typescript
+const account = await client.getAccountInfo();
+
+// وەڵام بریتیە لە:
+// - user: ناسێنەری بەکارهێنەر
+// - remainingRequests: داواکاریی API ی ماوەی ڕۆژانە
+// - rateLimitRemaining: داواکاریی ماوەی هەر خولەکێک
+// - timestamp: کاتەوە ئێستا
+```
+
+#### `isCurrencySupported(currency: string)`
+
+پشکنینی ئەوەی ئایا کۆدێکی دراو پشتگیری دەکرێت لەلایەن API.
+
+```typescript
+const isSupported = await client.isCurrencySupported('EUR'); // true
+const isNotSupported = await client.isCurrencySupported('XYZ'); // false
 ```
 
 ## ئامرازەکان
 
-SDK ئامرازە یارمەتیدەرە بەسوودەکان لەخۆدەگرێت:
+SDK تەوەرەکانی پێویست دەگرێتەوە:
 
 ```typescript
 import { 
@@ -232,36 +235,36 @@ import {
   getCurrencySymbol,
   getSupportedCurrencies,
   roundCurrencyValue
-} from 'exapi-currency-sdk';
+} from 'worx-currency-sdk';
 
-// پشتڕاستکردنەوەی کۆدی دراوەکان
+// پشتڕاستکردنەوەی کۆدی دراو
 const isValid = validateCurrencyCode('EUR'); // true
 
-// شێوازکردنی نرخی دراوەکان لەگەڵ هێماکانی ڕاست
+// فۆرماتکردنی بەهای دراو لەگەڵ سیمبۆلی گونجاو
 const formatted = formatCurrency(1234.5678, 'USD'); // $1234.5678
 const formatted2 = formatCurrency(1500, 'IQD'); // 1500.0000 ع.د
 
-// حیسابکردنی گۆڕانکاری ڕێژەیی
+// حیسابکردنی گۆڕانکاریی ڕێژەیی
 const change = calculatePercentageChange(105, 100); // 5
 
-// وەرگرتنی هێمای دراوەکان
+// بەدەستهێنانی سیمبۆلی دراو
 const symbol = getCurrencySymbol('EUR'); // €
 const symbolArabic = getCurrencySymbol('SAR'); // ﷼
 
-// وەرگرتنی هەموو دراوە پشتگیریکراوەکان
+// بەدەستهێنانی هەموو دراوە پشتگیریکراوەکان
 const currencies = getSupportedCurrencies(); // ['USD', 'EUR', 'GBP', ...]
 
-// خشتەکردنی نرخەکان لەگەڵ وردی تایبەت بە دراو
-const rounded = roundCurrencyValue(1234.56789, 'USD'); // 1234.5679 (4 دەسەتانە)
-const roundedIQD = roundCurrencyValue(1234.56789, 'IQD'); // 1235 (بێ دەسەتانە)
+// خۆڕاکردنی بەهاکان لەگەڵ وردبینی تایبەت بە دراو
+const rounded = roundCurrencyValue(1234.56789, 'USD'); // 1234.5679 (4 دەهی)
+const roundedIQD = roundCurrencyValue(1234.56789, 'IQD'); // 1235 (بێ دەهی)
 ```
 
-## چارەسەرکردنی هەڵەکان
+## مامەڵەکردن لەگەڵ هەڵە
 
-SDK زانیاری وردی هەڵەکان دابین دەکات:
+SDK زانیاریی ورد لەسەر هەڵە دابین دەکات:
 
 ```typescript
-import { WorxError } from 'exapi-currency-sdk';
+import { WorxError } from 'worx-currency-sdk';
 
 try {
   const rates = await client.getRates();
@@ -270,160 +273,266 @@ try {
     console.log('کۆدی هەڵە:', error.code);
     console.log('کۆدی دۆخ:', error.statusCode);
     console.log('پەیام:', error.message);
-    console.log('وردەکارییەکان:', error.details);
+    console.log('وردەکاری:', error.details);
     
-    // زانیاری سنوورداری نرخ
+    // زانیاریی سنوردانانی نرخ
     if (error.code === 'RATE_LIMIT_EXCEEDED') {
-      console.log('دووبارە هەوڵدانەوە دوای:', error.retryAfter, 'چرکە');
+      console.log('دووبارە هەوڵ بدەوە دوای:', error.retryAfter, 'چرکە');
       console.log('ماوە:', error.rateLimitRemaining);
     }
   }
 }
 ```
 
-## کۆدی هەڵەکان
+## کۆدی هەڵە
 
-- `UNAUTHORIZED` - نیشانەی API نادروست
-- `RATE_LIMIT_EXCEEDED` - سنووری نرخ تێپەڕێنرا، پشکنینی retryAfter
-- `SUBSCRIPTION_LIMIT_EXCEEDED` - سنووری ڕۆژانەی بەشداریکردن گەیشترا
-- `VALIDATION_ERROR` - پارامەترەکانی تێکردن نادروست
+- `UNAUTHORIZED` - تۆکینی API نادروست
+- `RATE_LIMIT_EXCEEDED` - سنووری نرخ تێپەڕێنراوە، retryAfter بپشکنە
+- `SUBSCRIPTION_LIMIT_EXCEEDED` - سنووری ڕۆژانەی اشتراک گەیشتە
+- `VALIDATION_ERROR` - پارامیتەری هاتووی نادروست
 - `CURRENCY_NOT_FOUND` - دراو بەردەست نییە
-- `WATCH_LIMIT_EXCEEDED** - گەیشت بە ئەوپەڕی دراوە چاودێریکراوەکان
+- `WATCH_LIMIT_EXCEEDED` - زۆرترین دراوی چاودێریکراو گەیشتە
 - `WATCH_NOT_FOUND` - دراوی چاودێریکراو نەدۆزرایەوە
-- `ACCESS_DENIED` - دەستگەیشتن بە دراو ڕەتکرایەوە (لە لیستی چاودێریدا نییە)
-- `TIMEOUT_ERROR` - کاتی داواکاری تەواو بوو
-- `NETWORK_ERROR` - کێشەی پەیوەندی تۆڕ
-- `INTERNAL_SERVER_ERROR` - هەڵەی سێرڤەر
+- `ACCESS_DENIED` - دەستڕاگەیشتن بۆ دراو ڕەتکرایەوە (لە لیستی چاودێری نییە)
+- `TIMEOUT_ERROR` - کاتی چاوەڕوانی داواکاری
+- `NETWORK_ERROR` - کێشەی بەستەری تۆڕ
+- `INTERNAL_SERVER_ERROR` - هەڵەی ڕاژەکار
 
-## سنووری نرخ
+## سنوردانانی نرخ
 
-SDK بە شێوەی خودکار مامەڵە لەگەڵ سنووری نرخەکان دەکات:
+SDK بە شێوەی خودکار سنووری نرخەکان بەڕێوە دەبات بە پشتبەستن بە پلانی اشتراکت:
 
-- **پلانی خۆڕایی**: 24 بانگکردنی API ڕۆژانە (یەک لە کاتژمێرێکدا)
-- **پلانی پڕۆ**: 1500 بانگکردنی API ڕۆژانە (نزیکەی 62 لە کاتژمێرێکدا)
-- **پلانی بزنس**: 4000 بانگکردنی API ڕۆژانە (نزیکەی 166 لە کاتژمێرێکدا)
-- **پلانی پلاتینی**: 8640 بانگکردنی API ڕۆژانە (6 لە خولەکێکدا، 360 لە کاتژمێرێکدا)
+- **پلانی خۆڕایی**: ٢٤ بانگکردنی API لە ڕۆژێکدا (١ داواکاری لە کاتژمێرێک)
+- **پلانی پرۆ**: ١٥٠٠ بانگکردنی API لە ڕۆژێکدا (نزیکەی ٦٢ لە کاتژمێرێک)
+- **پلانی بازرگانی**: ٤٠٠٠ بانگکردنی API لە ڕۆژێکدا (نزیکەی ١٦٦ لە کاتژمێرێک)
+- **پلانی پلاتینیوم**: ٨٦٤٠ بانگکردنی API لە ڕۆژێکدا (٦ لە خولەکێک، ٣٦٠ لە کاتژمێرێک)
 
-زانیاری سنووری نرخ لە سەری وەڵام و وردەکاری هەڵەکاندا بەردەستە.
+زانیاریی سنووری نرخ لە سەرنووسەی وەڵام و وردەکاری هەڵەدا بەردەستە. SDK بە شێوەی خودکار دووبارە هەوڵی داواکاریەکان دەدات کاتێک سنووری نرخ تێپەڕێنراوە لەگەڵ ستراتیژیی گونجاوی backoff.
 
-## پلانەکانی بەشداریکردن
+## پلانەکانی اشتراک
 
-### پلانی خۆڕایی - بەخۆڕایی
-- **بانگکردنی API**: 24 ڕۆژانە (یەک لە کاتژمێرێکدا)
-- **Webhooks**: بەردەست نین
+### پلانی خۆڕایی - $٠/مانگ
+- **بانگکردنی API**: ٢٤ لە ڕۆژێک (١ لە کاتژمێرێک)
+- **Webhooks**: بەردەست نییە
 - **پشتگیری**: پشتگیری ئیمەیڵ
-- **گونجاو بۆ**: تاقیکردنەوە و پرۆژە کەسییە بچووکەکان
+- **تەواو بۆ**: تاقیکردنەوە و پڕۆژە بچووکە کەسییەکان
 
-### پلانی پڕۆ - $4.95/مانگ
-- **بانگکردنی API**: 1500 ڕۆژانە
-- **Webhooks**: بەردەست نین
+### پلانی پرۆ - $٤.٩٥/مانگ
+- **بانگکردنی API**: ١٥٠٠ لە ڕۆژێک
+- **Webhooks**: بەردەست نییە
 - **پشتگیری**: پشتگیری ئیمەیڵ
-- **گونجاو بۆ**: پرۆژە بچووک و ناوەندیەکان
+- **تەواو بۆ**: پڕۆژە بچووک بۆ مامناوەندەکان
 
-### پلانی بزنس - $9.95/مانگ
-- **بانگکردنی API**: 4000 ڕۆژانە
-- **Webhooks**: یەک webhook endpoint
-- **پشتگیری**: پشتگیری ئیمەیڵ و چاتی ڕاستەوخۆ
-- **گونجاو بۆ**: کۆمپانیا گەشەکەرەکان و نەرمەکاڵای بەرهەمهێنان
+### پلانی بازرگانی - $٩.٩٥/مانگ
+- **بانگکردنی API**: ٤٠٠٠ لە ڕۆژێک
+- **Webhooks**: ١ خاڵی کۆتایی webhook
+- **پشتگیری**: پشتگیری ئیمەیڵ و گفتوگۆ
+- **تەواو بۆ**: بازرگانی گەشەکردوو و ئەپی بەرهەمهێنان
 
-### پلانی پلاتینی - $24.95/مانگ
-- **بانگکردنی API**: 8640 ڕۆژانە (6 لە خولەکێکدا)
-- **Webhooks**: 5 webhook endpoint
-- **پشتگیری**: پشتگیری 24/7 بە ئیمەیڵ و چات و تەلەفۆن
-- **گونجاو بۆ**: نەرمەکاڵای دامەزراوە و خزمەتگوزاری بەرزی قەبارە
+### پلانی پلاتینیوم - $٢٤.٩٥/مانگ
+- **بانگکردنی API**: ٨٦٤٠ لە ڕۆژێک (٦ لە خولەکێک)
+- **Webhooks**: ٥ خاڵی کۆتایی webhook
+- **پشتگیری**: پشتگیری ٢٤/٧ ئیمەیڵ، گفتوگۆ، و تەلەفۆن
+- **تەواو بۆ**: ئەپلیکەیشنی کۆمپانیا و خزمەتگوزاریی قەبارە گەورە
 
-### پلانی تایبەت - پەیوەندی بکە بۆ نرخ
-- **بانگکردنی API**: تایبەت بەپێی پێداویستییەکانت
-- **Webhooks**: تایبەت بەپێی پێداویستییەکانت
-- **پشتگیری**: پشتگیری تەلەفۆن و ئیمەیڵ و چات
-- **نرخی تایبەت**: بەپێی پێداویستییەکانت
-- **گونجاو بۆ**: دامەزراوەکان لەگەڵ پێداویستی تایبەت
+### پلانی تایبەت - پەیوەندی بکە بۆ نرخدان
+- **بانگکردنی API**: گونجاو بە پێویستییەکانت
+- **Webhooks**: گونجاو بە پێویستییەکانت
+- **پشتگیری**: پشتگیری تەلەفۆن، ئیمەیڵ، و گفتوگۆ
+- **نرخدانی تایبەت**: گونجاو بە پێداویستییەکانت
+- **تەواو بۆ**: دامەزراوەکان لەگەڵ پێویستی تایبەت
 
-## ڕاوێژە ئادایی
+## بەکارهێنانی پێشکەوتوو
 
-### باشکردنی بەکارهێنانی API بۆ پلانە خۆڕاییەکان
+### ڕێکخستنی کاشکردنی زیرەک
 
 ```typescript
-// cache بە کاریگەری بەکاربێنە بۆ کەمکردنەوەی بانگکردنی API
+// ڕێکخستنی ڕێکخستنەکانی کاش
 const client = new WorxClient({
-  apiToken: 'your-free-plan-token',
-  cache: { enabled: true, ttl: 600000 } // 10 خولەک بۆ پلانە خۆڕاییەکان
+  apiToken: 'your-token',
+  cache: {
+    enabled: true,
+    ttl: 300000  // ٥ خولەک TTL کاش
+  }
 });
 
-// کۆکردنەوەی کردارەکان کاتێک گونجاوە
+// پاکردنەوەی کاش کاتێک پێویستە
+client.clearCache();
+
+// پشکنینی بەردەستبوونی داتای کاشکراو
+const rates = await client.getRates(); // کاش بەکار دەهێنێت ئەگەر بەردەست بێت
+```
+
+### پۆڵینگی کاتی ڕاستەقینە
+
+```typescript
+// دەستپێکردنی پۆڵینگ بۆ نوێکردنەوەی نرخ
+client.startPolling({
+  interval: 60000,  // پۆڵ هەر خولەکێک
+  currencies: ['EUR', 'GBP', 'TRY'], // هەڵبژاردە: دراوە تایبەتەکان
+  onUpdate: (rates) => {
+    console.log('نرخی نوێ وەرگیرا:', rates);
+  },
+  onError: (error) => {
+    console.error('هەڵەی پۆڵینگ:', error.message);
+  }
+});
+
+// وەستاندنی پۆڵینگ
+client.stopPolling();
+
+// پشکنینی دۆخی پۆڵینگ
+const isPolling = client.isPolling();
+```
+
+### گۆڕینی دراوی دەرەوەی هێڵ
+
+```typescript
+// گۆڕینی دراوەکان بە بەکارهێنانی نرخی کاشکراو (بانگکردنی API نییە)
+const convertedAmount = client.convert(100, 'USD', 'EUR');
+if (convertedAmount !== null) {
+  console.log(`100 USD = ${convertedAmount} EUR`);
+} else {
+  console.log('گۆڕین بەردەست نییە - نرخەکان کاش نەکراون');
+}
+```
+
+### ناوی دراوی فرە زمان
+
+```typescript
+// بەدەستهێنانی ناوی دراو بە زمانە جیاوازەکان
+const eurName = client.getCurrencyName('EUR', 'en'); // "Euro"
+const eurNameKu = client.getCurrencyName('EUR', 'ku'); // "یۆرۆ"
+const eurNameAr = client.getCurrencyName('EUR', 'ar'); // "اليورو"
+
+// بەکارهێنان لە ئەپلیکەیشنت
+const displayName = client.getCurrencyName('IQD', 'ku'); // "دیناری عێراقی"
+```
+
+### هەڵبژاردەی داواکاریی تایبەت
+
+```typescript
+// ڕێکخستنی کاتی چاوەڕوان و دووبارە هەوڵدانەوەی تایبەت
+const rates = await client.getRates({
+  timeout: 10000,    // کاتی چاوەڕوانی ١٠ چرکە
+  retries: 1,        // تەنها ١ دووبارە هەوڵدانەوە
+  retryDelay: 500    // دواکەوتنی ٥٠٠ms لە نێوان دووبارە هەوڵدانەوەکان
+});
+```
+
+### کارکردن لەگەڵ داتای مێژووی
+
+```typescript
+const eurData = await client.getCurrency('EUR');
+
+// دەستڕاگەیشتن بە نرخی مێژووی
+eurData.history.forEach(point => {
+  console.log(`${point.timestamp}: ${point.price}`);
+});
+
+// بەکارهێنانی شیکاری
+console.log('بەرزترین نرخ:', eurData.analytics.highestPrice);
+console.log('نزمترین نرخ:', eurData.analytics.lowestPrice);
+console.log('ناوەندی نرخ:', eurData.analytics.averagePrice);
+```
+
+### چاودێریکردنی گۆڕانکاریی دراو
+
+```typescript
+// زیادکردنی دراوەکان بۆ لیستی چاودێری
+await client.addWatchedCurrency('EUR');
+await client.addWatchedCurrency('GBP');
+await client.addWatchedCurrency('TRY');
+
+// بەدەستهێنانی نرخی ئێستا بۆ دراوە چاودێریکراوەکان تەنها
+const watchedRates = await client.getRates();
+console.log('مۆدی چاودێری:', watchedRates.filters.isWatchingMode); // true
+
+// چاودێریکردنی ڕەوتی دراوی تایبەت
+const eur = await client.getCurrency('EUR');
+console.log(`ڕەوتی EUR: ${eur.currency.trend}`); // 'up'، 'down'، یان 'stable'
+console.log(`گۆڕانی نرخ: ${eur.currency.changePercent}%`);
+```
+
+## پشتگیری TypeScript
+
+SDK بە TypeScript نووسراوە و پێناسەی جۆری تەواو دابین دەکات:
+
+```typescript
+import { 
+  WorxClient, 
+  RatesResponse, 
+  CurrencyResponse,
+  SupportedCurrency,
+  WorxError 
+} from 'worx-currency-sdk';
+
+// هەموو وەڵامەکان بە تەواوی جۆردار کراون
+const client = new WorxClient({ apiToken: 'token' });
+const rates: RatesResponse = await client.getRates();
+const currency: CurrencyResponse = await client.getCurrency('EUR');
+```
+
+## پشتگیری وێبگەڕ
+
+SDK لە وێبگەڕە نوێیەکان کار دەکات لەگەڵ پشتگیری fetch. بۆ وێبگەڕە کۆنەکان، polyfill ی fetch بخەرە ژوورەوە:
+
+```typescript
+// بۆ وێبگەڕە کۆنەکان
+import WorxClient from 'worx-currency-sdk';
+
+const client = new WorxClient({ apiToken: 'your-token' });
+```
+
+## ئامۆژگاریی کارایی
+
+### باشکردنی بەکارهێنانی API بۆ پلانە خۆڕاییەکان
+```typescript
+// بە کاریگەری کاش بەکار بهێنە بۆ کەمکردنەوەی بانگکردنی API
+const client = new WorxClient({
+  apiToken: 'your-free-plan-token',
+  // ttl بە میلی چرکە
+  cache: { enabled: true, ttl: 3600000 } // ٦٠ خولەک (٣٦٠٠٠٠٠ ms) بۆ پلانە خۆڕاییەکان
+});
+
+// کاری کۆمەڵایەتی کاتێک دەکرێت
 const [rates, account] = await Promise.all([
   client.getRates(),
   client.getAccountInfo()
 ]);
 ```
 
-### نەرمەکاڵا کاتی ڕاستەوخۆیەکان
-
+### ئەپلیکەیشنی کاتی ڕاستەقینە
 ```typescript
-// polling بەکاربێنە بۆ داشبۆردە ڕاستەوخۆیەکان
+// پۆڵینگ بەکار بهێنە بۆ داشبۆردی زیندوو
 client.startPolling({
-  interval: 120000, // 2 خولەک بۆ پلانە خۆڕاییەکان
-  currencies: ['USD', 'EUR', 'GBP'], // چاودێری دراوە دیاریکراوەکان
+  interval: 120000, // ٢ خولەک بۆ پلانە خۆڕاییەکان
+  currencies: ['USD', 'EUR', 'GBP'], // چاودێریکردنی دراوە تایبەتەکان
   onUpdate: (rates) => updateUI(rates)
 });
 
-// جێبەجێکردنی شێوازی offline-first
+// جێبەجێکردنی ڕێبازی offline-first
 const convertedAmount = client.convert(amount, 'USD', 'EUR');
 if (convertedAmount === null) {
-  // پاشەکەوت بۆ بانگکردنی API لە حاڵەتی نەبوونی cache
+  // پاشەکشە بۆ بانگکردنی API ئەگەر کاش نەدۆزرایەوە
   const eurData = await client.getCurrency('EUR');
-  // نرخی تازە بەکاربێنە بۆ نەوە
+  // نرخی تازە بۆ گۆڕین بەکار بهێنە
 }
 ```
 
-## باشترین شێوازەکان
+## باشترین پراکتیسەکان
 
-1. **بەڕێوەبردنی cache**: cache چالاک بکە بۆ باشکردنی بەکارهێنانی بەش، بەتایبەت لەسەر پلانە خۆڕاییەکان
-2. **چارەسەرکردنی هەڵەکان**: هەمیشە مامەڵە لەگەڵ `WorxError` بکە بۆ ئەزموونێکی گونجاوی بەکارهێنەر
-3. **سنووری نرخ**: چاودێری `rateLimitRemaining` لە وەڵامەکاندا بکە بۆ دوورکەوتنەوە لە گەیشتن بە سنوورەکان
-4. **پشتگیری offline**: ڕێگای `convert()` بەکاربێنە بۆ حیسابە دراوییەکانی offline
-5. **فرە زمان**: `getCurrencyName()` بەکاربێنە بۆ پیشاندانی دراوە ناوخۆییەکان
-6. **پاککردنەوەی سەرچاوەکان**: `client.destroy()` بانگ بکە کاتێک تەواو دەبیت بۆ پاککردنەوەی ماوەی polling
-
-## پشتگیری وێبگەڕ
-
-SDK لە وێبگەڕە نوێیەکاندا کار دەکات لەگەڵ پشتگیری fetch. بۆ وێبگەڕە کۆنەکان، polyfill-ی fetch بخەرە ژوورەوە:
-
-```typescript
-// بۆ وێبگەڕە کۆنەکان
-import 'whatwg-fetch';
-import WorxClient from 'exapi-currency-sdk';
-
-const client = new WorxClient({ apiToken: 'your-token' });
-```
-
-## بەشداریکردن
-
-1. fork بکە بۆ کۆگا
-2. لقی تایبەتمەندییەکەت دروست بکە (`git checkout -b feature/amazing-feature`)
-3. گۆڕانکارییەکانت commit بکە (`git commit -m 'Add amazing feature'`)
-4. بۆ لقەکە push بکە (`git push origin feature/amazing-feature`)
-5. داواکاری کێشان بکەرەوە
+١. **بەڕێوەبردنی کاش**: کاشکردن چالاک بکە بۆ باشکردنی بەکارهێنانی کۆتا، بە تایبەتی لەسەر پلانە خۆڕاییەکان
+٢. **مامەڵەکردن لەگەڵ هەڵە**: هەمیشە `WorxError` مامەڵە بکە بۆ ئەزموونی گونجاوی بەکارهێنەر
+٣. **سنوردانانی نرخ**: `rateLimitRemaining` لە وەڵامەکان بپشکنە بۆ دوورکەوتنەوە لە گەیشتن بە سنوورەکان
+٤. **پشتگیری دەرەوەی هێڵ**: شێوازی `convert()` بۆ حیسابی دراوی دەرەوەی هێڵ بەکار بهێنە
+٥. **فرە زمان**: `getCurrencyName()` بۆ پیشاندانی دراوی خۆماڵی بەکار بهێنە
+٦. **پاکردنەوەی سەرچاوە**: `client.destroy()` بانگ بکە کاتێک تەواو بوویت بۆ پاکردنەوەی ماوەی پۆڵینگ
 
 ## مۆڵەت
 
-ئەم پڕۆژەیە لەژێر مۆڵەتی MIT-دایە - سەیری پەڕگەی [LICENSE](LICENSE) بکە بۆ وردەکارییەکان.
+ئەم پڕۆژەیە بە مۆڵەتی MIT مۆڵەت دراوە - فایلی [LICENSE](LICENSE) ببینە بۆ وردەکاری.
 
 ## پشتگیری
 
-- 📧 ئیمەیڵ: support@worx.dev
-- 📖 بەڵگەنامە: https://docs.worx.dev
-- 🐛 کێشەکان: https://github.com/worx/currency-sdk/issues
-- 💬 ديسكۆرد: https://discord.gg/worx
-
-## تۆماری گۆڕانکاری
-
-### v1.0.0
-- وەشانی یەکەم
-- پشتگیری تەواوی TypeScript
-- داپۆشینی تەواوی API v1
-- سنووری نرخ و چارەسەرکردنی هەڵەکان
-- ئامرازی یارمەتیدەری تەواو
-- پشتگیری وێبگەڕ و Node.js
-- cache-ی زیرەک و polling-ی کاتی ڕاستەوخۆ
-- نەوەی offline و پشتگیری فرە زمان
+- 📧 ئیمەیڵ: worx@dilshad.net

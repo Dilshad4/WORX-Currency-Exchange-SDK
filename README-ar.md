@@ -2,7 +2,7 @@
 
 حزمة تطوير TypeScript احترافية لواجهة برمجة تطبيقات WORX v1 لصرف العملات. احصل على أسعار صرف العملات في الوقت الفعلي مع ميزات شاملة تشمل التخزين المؤقت الذكي والتحويل دون اتصال والدعم متعدد اللغات.
 
-[![npm version](https://badge.fury.io/js/exapi-currency-sdk.svg)](https://www.npmjs.com/package/exapi-currency-sdk)
+[![npm version](https://badge.fury.io/js/worx-currency-sdk.svg)](https://www.npmjs.com/package/worx-currency-sdk)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -16,7 +16,7 @@
 - 📊 **البيانات التاريخية والتحليلات** - اتجاهات الأسعار والتغيرات والتحليلات الشاملة
 - 🔄 **إعادة المحاولة التلقائية** - منطق إعادة المحاولة المدمج مع التأخير التدريجي
 - 🚦 **حد معدل ذكي** - التعامل التلقائي مع حدود المعدل مع الوعي بالاشتراك
-- 🎯 **إدارة الاشتراكات** - دعم خطط مجانية وبرو وبلاتينية
+- 🎯 **إدارة الاشتراكات** - دعم خطط مجانية وبرو وتجارية وبلاتينية ومخصصة
 - 🔐 **مصادقة آمنة** - مصادقة رمز Bearer مع معالجة الأخطاء
 - 📱 **متعدد المنصات** - يعمل بسلاسة في Node.js والمتصفحات الحديثة
 - 💾 **تخزين مؤقت ذكي** - تخزين مؤقت ذكي مع TTL قابل للتكوين لتحسين حصص API
@@ -29,21 +29,21 @@
 ## التثبيت
 
 ```bash
-npm install exapi-currency-sdk
+npm install worx-currency-sdk
 ```
 
 ```bash
-yarn add exapi-currency-sdk
+yarn add worx-currency-sdk
 ```
 
 ```bash
-pnpm add exapi-currency-sdk
+pnpm add worx-currency-sdk
 ```
 
 ## البدء السريع
 
 ```typescript
-import WorxClient from 'exapi-currency-sdk';
+import WorxClient from 'worx-currency-sdk';
 
 // تهيئة العميل
 const client = new WorxClient({
@@ -93,14 +93,9 @@ console.log(watched);
 ```typescript
 const client = new WorxClient({
   apiToken: 'your-token',        // مطلوب: رمز API الخاص بك
-  baseUrl: 'https://api.worx.dev', // اختياري: عنوان URL أساسي مخصص للـ API
   timeout: 30000,                // اختياري: مهلة الطلب بالميلي ثانية (افتراضي: 30000)
   retries: 3,                    // اختياري: عدد المحاولات (افتراضي: 3)
-  retryDelay: 1000,              // اختياري: التأخير بين المحاولات بالميلي ثانية (افتراضي: 1000)
-  cache: {                       // اختياري: إعدادات التخزين المؤقت
-    enabled: true,               // تفعيل التخزين المؤقت
-    ttl: 300000                  // 5 دقائق TTL
-  }
+  retryDelay: 1000              // اختياري: التأخير بين المحاولات بالميلي ثانية (افتراضي: 1000)
 });
 ```
 
@@ -153,71 +148,79 @@ const eurData = await client.getCurrency('EUR');
 // - analytics: أعلى وأدنى ومتوسط الأسعار وعدد نقاط البيانات
 ```
 
-### الاستخدام المتقدم
+#### `getWatchedCurrencies(options?: RequestOptions)`
 
-#### تكوين التخزين المؤقت الذكي
+احصل على العملات المراقبة الخاصة بالمستخدم مع أسعارها الحالية.
 
 ```typescript
-// تكوين إعدادات التخزين المؤقت
-const client = new WorxClient({
-  apiToken: 'your-token',
-  cache: {
-    enabled: true,
-    ttl: 300000  // 5 دقائق TTL للتخزين المؤقت
-  }
-});
+const watched = await client.getWatchedCurrencies();
 
-// مسح التخزين المؤقت عند الحاجة
-client.clearCache();
-
-// التحقق من توفر البيانات المخزنة مؤقتاً
-const rates = await client.getRates(); // يستخدم التخزين المؤقت إذا كان متاحاً
+// الاستجابة تشمل:
+// - watchedCurrencies: مصفوفة من كائنات العملة المراقبة
+// - summary: العدد الإجمالي والحد الأقصى المسموح والمساحات المتبقية
+// - filters: إحصائيات حول توفر بيانات الأسعار
 ```
 
-#### الاستطلاع في الوقت الفعلي
+#### `addWatchedCurrency(currency: SupportedCurrency, options?: RequestOptions)`
+
+أضف عملة إلى قائمة المراقبة الخاصة بك.
 
 ```typescript
-// بدء استطلاع تحديثات الأسعار
-client.startPolling({
-  interval: 60000,  // استطلاع كل دقيقة
-  currencies: ['EUR', 'GBP', 'TRY'], // اختياري: عملات محددة
-  onUpdate: (rates) => {
-    console.log('أسعار جديدة مستلمة:', rates);
-  },
-  onError: (error) => {
-    console.error('خطأ في الاستطلاع:', error.message);
-  }
-});
+const result = await client.addWatchedCurrency('GBP');
 
-// إيقاف الاستطلاع
-client.stopPolling();
-
-// فحص حالة الاستطلاع
-const isPolling = client.isPolling();
+// الاستجابة تشمل:
+// - watchedCurrency: كائن العملة المراقبة الجديد
+// - summary: إحصائيات قائمة المراقبة المحدثة
+// - message: رسالة نجاح
 ```
 
-#### تحويل العملات دون اتصال
+#### `removeWatchedCurrency(currency: SupportedCurrency, options?: RequestOptions)`
+
+أزل عملة من قائمة المراقبة الخاصة بك.
 
 ```typescript
-// تحويل العملات باستخدام الأسعار المخزنة مؤقتاً (بدون استدعاء API)
-const convertedAmount = client.convert(100, 'USD', 'EUR');
-if (convertedAmount !== null) {
-  console.log(`100 USD = ${convertedAmount} EUR`);
-} else {
-  console.log('التحويل غير متاح - الأسعار غير مخزنة مؤقتاً');
-}
+const result = await client.removeWatchedCurrency('GBP');
+
+// الاستجابة تشمل:
+// - removed: معلومات حول العملة المحذوفة
+// - summary: إحصائيات قائمة المراقبة المحدثة
+// - message: رسالة نجاح
 ```
 
-#### أسماء العملات متعددة اللغات
+#### `getCurrencies(options?: RequestOptions)`
+
+احصل على جميع العملات المتاحة مع البيانات الوصفية وحالة التوفر.
 
 ```typescript
-// الحصول على أسماء العملات بلغات مختلفة
-const eurName = client.getCurrencyName('EUR', 'en'); // "Euro"
-const eurNameKu = client.getCurrencyName('EUR', 'ku'); // "یۆرۆ"
-const eurNameAr = client.getCurrencyName('EUR', 'ar'); // "اليورو"
+const currencies = await client.getCurrencies();
 
-// الاستخدام في تطبيقك
-const displayName = client.getCurrencyName('IQD', 'ar'); // "الدينار العراقي"
+// الاستجابة تشمل:
+// - currencies: كائن مع مصفوفات مراقبة ومتاحة وغير متاحة
+// - summary: إحصائيات عامة
+// - metadata: العملة الأساسية والعملات المدعومة ووقت آخر تحديث
+```
+
+#### `getAccountInfo(options?: RequestOptions)`
+
+احصل على معلومات الحساب بما في ذلك حدود المعدل وتفاصيل الاشتراك.
+
+```typescript
+const account = await client.getAccountInfo();
+
+// الاستجابة تشمل:
+// - user: معرف المستخدم
+// - remainingRequests: طلبات API اليومية المتبقية
+// - rateLimitRemaining: طلبات الدقيقة المتبقية
+// - timestamp: الطابع الزمني الحالي
+```
+
+#### `isCurrencySupported(currency: string)`
+
+تحقق مما إذا كان رمز العملة مدعوماً من قبل API.
+
+```typescript
+const isSupported = await client.isCurrencySupported('EUR'); // true
+const isNotSupported = await client.isCurrencySupported('XYZ'); // false
 ```
 
 ## الأدوات المساعدة
@@ -232,7 +235,7 @@ import {
   getCurrencySymbol,
   getSupportedCurrencies,
   roundCurrencyValue
-} from 'exapi-currency-sdk';
+} from 'worx-currency-sdk';
 
 // التحقق من صحة رموز العملات
 const isValid = validateCurrencyCode('EUR'); // true
@@ -261,7 +264,7 @@ const roundedIQD = roundCurrencyValue(1234.56789, 'IQD'); // 1235 (بدون من
 توفر حزمة التطوير معلومات خطأ مفصلة:
 
 ```typescript
-import { WorxError } from 'exapi-currency-sdk';
+import { WorxError } from 'worx-currency-sdk';
 
 try {
   const rates = await client.getRates();
@@ -304,7 +307,7 @@ try {
 - **الخطة التجارية**: 4000 استدعاء API يومياً (حوالي 166 في الساعة)
 - **الخطة البلاتينية**: 8640 استدعاء API يومياً (6 في الدقيقة، 360 في الساعة)
 
-معلومات حد المعدل متاحة في رؤوس الاستجابة وتفاصيل الخطأ.
+معلومات حد المعدل متاحة في رؤوس الاستجابة وتفاصيل الخطأ. ستعيد حزمة التطوير تلقائياً المحاولة عند تجاوز حدود المعدل مع استراتيجيات التأخير المناسبة.
 
 ## خطط الاشتراك
 
@@ -339,6 +342,148 @@ try {
 - **تسعير مخصص**: مُفصل حسب متطلباتك
 - **مثالية لـ**: المنظمات ذات الاحتياجات الخاصة
 
+## الاستخدام المتقدم
+
+### تكوين التخزين المؤقت الذكي
+
+```typescript
+// تكوين إعدادات التخزين المؤقت
+const client = new WorxClient({
+  apiToken: 'your-token',
+  cache: {
+    enabled: true,
+    ttl: 300000  // 5 دقائق TTL للتخزين المؤقت
+  }
+});
+
+// مسح التخزين المؤقت عند الحاجة
+client.clearCache();
+
+// التحقق من توفر البيانات المخزنة مؤقتاً
+const rates = await client.getRates(); // يستخدم التخزين المؤقت إذا كان متاحاً
+```
+
+### الاستطلاع في الوقت الفعلي
+
+```typescript
+// بدء استطلاع تحديثات الأسعار
+client.startPolling({
+  interval: 60000,  // استطلاع كل دقيقة
+  currencies: ['EUR', 'GBP', 'TRY'], // اختياري: عملات محددة
+  onUpdate: (rates) => {
+    console.log('أسعار جديدة مستلمة:', rates);
+  },
+  onError: (error) => {
+    console.error('خطأ في الاستطلاع:', error.message);
+  }
+});
+
+// إيقاف الاستطلاع
+client.stopPolling();
+
+// فحص حالة الاستطلاع
+const isPolling = client.isPolling();
+```
+
+### تحويل العملات دون اتصال
+
+```typescript
+// تحويل العملات باستخدام الأسعار المخزنة مؤقتاً (بدون استدعاء API)
+const convertedAmount = client.convert(100, 'USD', 'EUR');
+if (convertedAmount !== null) {
+  console.log(`100 USD = ${convertedAmount} EUR`);
+} else {
+  console.log('التحويل غير متاح - الأسعار غير مخزنة مؤقتاً');
+}
+```
+
+### أسماء العملات متعددة اللغات
+
+```typescript
+// الحصول على أسماء العملات بلغات مختلفة
+const eurName = client.getCurrencyName('EUR', 'en'); // "Euro"
+const eurNameKu = client.getCurrencyName('EUR', 'ku'); // "یۆرۆ"
+const eurNameAr = client.getCurrencyName('EUR', 'ar'); // "اليورو"
+
+// الاستخدام في تطبيقك
+const displayName = client.getCurrencyName('IQD', 'ar'); // "الدينار العراقي"
+```
+
+### خيارات الطلب المخصصة
+
+```typescript
+// إعدادات المهلة الزمنية وإعادة المحاولة المخصصة
+const rates = await client.getRates({
+  timeout: 10000,    // مهلة زمنية 10 ثوانٍ
+  retries: 1,        // محاولة واحدة فقط
+  retryDelay: 500    // تأخير 500ms بين المحاولات
+});
+```
+
+### العمل مع البيانات التاريخية
+
+```typescript
+const eurData = await client.getCurrency('EUR');
+
+// الوصول إلى الأسعار التاريخية
+eurData.history.forEach(point => {
+  console.log(`${point.timestamp}: ${point.price}`);
+});
+
+// استخدام التحليلات
+console.log('أعلى سعر:', eurData.analytics.highestPrice);
+console.log('أدنى سعر:', eurData.analytics.lowestPrice);
+console.log('متوسط السعر:', eurData.analytics.averagePrice);
+```
+
+### مراقبة تغيرات العملات
+
+```typescript
+// إضافة العملات إلى قائمة المراقبة
+await client.addWatchedCurrency('EUR');
+await client.addWatchedCurrency('GBP');
+await client.addWatchedCurrency('TRY');
+
+// الحصول على الأسعار الحالية للعملات المراقبة فقط
+const watchedRates = await client.getRates();
+console.log('وضع المراقبة:', watchedRates.filters.isWatchingMode); // true
+
+// مراقبة اتجاهات عملة محددة
+const eur = await client.getCurrency('EUR');
+console.log(`اتجاه EUR: ${eur.currency.trend}`); // 'up', 'down', or 'stable'
+console.log(`تغيير السعر: ${eur.currency.changePercent}%`);
+```
+
+## دعم TypeScript
+
+حزمة التطوير مكتوبة بـ TypeScript وتوفر تعريفات أنواع كاملة:
+
+```typescript
+import { 
+  WorxClient, 
+  RatesResponse, 
+  CurrencyResponse,
+  SupportedCurrency,
+  WorxError 
+} from 'worx-currency-sdk';
+
+// جميع الاستجابات مكتوبة بالكامل
+const client = new WorxClient({ apiToken: 'token' });
+const rates: RatesResponse = await client.getRates();
+const currency: CurrencyResponse = await client.getCurrency('EUR');
+```
+
+## دعم المتصفح
+
+تعمل حزمة التطوير في المتصفحات الحديثة مع دعم fetch. للمتصفحات الأقدم، ضمّن polyfill للـ fetch:
+
+```typescript
+// للمتصفحات الأقدم
+import WorxClient from 'worx-currency-sdk';
+
+const client = new WorxClient({ apiToken: 'your-token' });
+```
+
 ## نصائح الأداء
 
 ### تحسين استخدام API للخطط المجانية
@@ -347,7 +492,8 @@ try {
 // استخدم التخزين المؤقت بفعالية لتقليل استدعاءات API
 const client = new WorxClient({
   apiToken: 'your-free-plan-token',
-  cache: { enabled: true, ttl: 600000 } // 10 دقائق للخطط المجانية
+  // ttl بالميلي ثانية
+  cache: { enabled: true, ttl: 3600000 } // 60 دقيقة (3600000 ms) للخطط المجانية
 });
 
 // دمج العمليات عند الإمكان
@@ -385,45 +531,10 @@ if (convertedAmount === null) {
 5. **متعدد اللغات**: استخدم `getCurrencyName()` لعرض العملات المحلية
 6. **تنظيف الموارد**: اتصل بـ `client.destroy()` عند الانتهاء لتنظيف فترات الاستطلاع
 
-## دعم المتصفح
-
-تعمل حزمة التطوير في المتصفحات الحديثة مع دعم fetch. للمتصفحات الأقدم، ضمّن polyfill للـ fetch:
-
-```typescript
-// للمتصفحات الأقدم
-import 'whatwg-fetch';
-import WorxClient from 'exapi-currency-sdk';
-
-const client = new WorxClient({ apiToken: 'your-token' });
-```
-
-## المساهمة
-
-1. اعمل fork للمستودع
-2. أنشئ فرع الميزة الخاص بك (`git checkout -b feature/amazing-feature`)
-3. اعتمد تغييراتك (`git commit -m 'Add amazing feature'`)
-4. ادفع للفرع (`git push origin feature/amazing-feature`)
-5. افتح طلب سحب
-
 ## الرخصة
 
 هذا المشروع مرخص تحت رخصة MIT - راجع ملف [LICENSE](LICENSE) للتفاصيل.
 
 ## الدعم
 
-- 📧 البريد الإلكتروني: support@worx.dev
-- 📖 التوثيق: https://docs.worx.dev
-- 🐛 المشاكل: https://github.com/worx/currency-sdk/issues
-- 💬 ديسكورد: https://discord.gg/worx
-
-## سجل التغيير
-
-### v1.0.0
-- الإصدار الأولي
-- دعم كامل لـ TypeScript
-- تغطية كاملة لـ API v1
-- تحديد المعدل ومعالجة الأخطاء
-- أدوات مساعدة شاملة
-- دعم المتصفح و Node.js
-- تخزين مؤقت ذكي واستطلاع في الوقت الفعلي
-- تحويل دون اتصال ودعم متعدد اللغات
+- 📧 البريد الإلكتروني: worx@dilshad.net

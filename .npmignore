@@ -1,0 +1,17 @@
+src/
+tests/
+*.test.ts
+*.spec.ts
+.eslintrc.*
+.prettierrc.*
+jest.config.*
+rollup.config.js
+tsconfig.json
+.github/
+.vscode/
+node_modules/
+coverage/
+.nyc_output/
+*.tgz
+.DS_Store
+Thumbs.db

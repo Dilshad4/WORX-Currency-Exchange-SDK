@@ -23,7 +23,6 @@ class WorxClient {
     constructor(config) {
         this.pollingInterval = null;
         this.apiToken = config.apiToken;
-        this.baseUrl = config.baseUrl || 'https://api.worx.dev';
         this.timeout = config.timeout || 30000;
         this.retries = config.retries || 3;
         this.retryDelay = config.retryDelay || 1000;
@@ -78,7 +77,7 @@ class WorxClient {
      * Make HTTP request with retry logic and error handling
      */
     async makeRequest(endpoint, options = {}, requestOptions) {
-        const url = `${this.baseUrl}/api/v1${endpoint}`;
+        const url = `https://exchange.dilshad.net/api/v1${endpoint}`;
         const timeout = requestOptions?.timeout || this.timeout;
         const retries = requestOptions?.retries || this.retries;
         const retryDelay = requestOptions?.retryDelay || this.retryDelay;

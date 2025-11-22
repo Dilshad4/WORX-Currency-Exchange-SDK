@@ -2,7 +2,7 @@
 
 Professional TypeScript SDK for WORX v1 Currency Exchange API. Get real-time currency exchange rates with comprehensive features including smart caching, offline conversion, and multi-language support.
 
-[![npm version](https://badge.fury.io/js/exapi-currency-sdk.svg)](https://www.npmjs.com/package/exapi-currency-sdk)
+[![npm version](https://badge.fury.io/js/worx-currency-sdk.svg)](https://www.npmjs.com/package/worx-currency-sdk)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -16,7 +16,7 @@ Professional TypeScript SDK for WORX v1 Currency Exchange API. Get real-time cur
 - 📊 **Historical Data & Analytics** - Price trends, changes, and comprehensive analytics
 - 🔄 **Automatic Retries** - Built-in retry logic with exponential backoff
 - 🚦 **Smart Rate Limiting** - Automatic rate limit handling with subscription awareness
-- 🎯 **Subscription Management** - Support for Free, Pro, and Platinum plans
+- 🎯 **Subscription Management** - Support for Free, Pro, Business, Platinum, and Custom plans
 - 🔐 **Secure Authentication** - Bearer token authentication with error handling
 - 📱 **Cross-platform** - Works seamlessly in Node.js and modern browsers
 - 💾 **Intelligent Caching** - Smart caching with configurable TTL to optimize API quotas
@@ -29,21 +29,21 @@ Professional TypeScript SDK for WORX v1 Currency Exchange API. Get real-time cur
 ## Installation
 
 ```bash
-npm install exapi-currency-sdk
+npm install worx-currency-sdk
 ```
 
 ```bash
-yarn add exapi-currency-sdk
+yarn add worx-currency-sdk
 ```
 
 ```bash
-pnpm add exapi-currency-sdk
+pnpm add worx-currency-sdk
 ```
 
 ## Quick Start
 
 ```typescript
-import WorxClient from 'exapi-currency-sdk';
+import WorxClient from 'worx-currency-sdk';
 
 // Initialize the client
 const client = new WorxClient({
@@ -93,7 +93,7 @@ console.log(watched);
 ```typescript
 const client = new WorxClient({
   apiToken: 'your-token',        // Required: Your API token
-  baseUrl: 'https://api.worx.dev', // Optional: Custom API base URL
+  baseUrl: 'https://exchnage.dilshad.net, // Optional: Custom API base URL
   timeout: 30000,                // Optional: Request timeout in ms (default: 30000)
   retries: 3,                    // Optional: Number of retries (default: 3)
   retryDelay: 1000              // Optional: Delay between retries in ms (default: 1000)
@@ -236,7 +236,7 @@ import {
   getCurrencySymbol,
   getSupportedCurrencies,
   roundCurrencyValue
-} from 'exapi-currency-sdk';
+} from 'worx-currency-sdk';
 
 // Validate currency codes
 const isValid = validateCurrencyCode('EUR'); // true
@@ -265,7 +265,7 @@ const roundedIQD = roundCurrencyValue(1234.56789, 'IQD'); // 1235 (no decimals)
 The SDK provides detailed error information:
 
 ```typescript
-import { WorxError } from 'exapi-currency-sdk';
+import { WorxError } from 'worx-currency-sdk';
 
 try {
   const rates = await client.getRates();
@@ -301,19 +301,47 @@ try {
 
 ## Rate Limiting
 
-The SDK automatically handles rate limits:
+The SDK automatically handles rate limits based on your subscription plan:
 
-- **Free Plan**: 1 request per minute
-- **Pro Plan**: 2 requests per minute  
-- **Platinum Plan**: 3 requests per minute
+- **Free Plan**: 24 API calls per day (1 request per hour)
+- **Pro Plan**: 1,500 API calls per day (approximately 62 per hour)
+- **Business Plan**: 4,000 API calls per day (approximately 166 per hour)
+- **Platinum Plan**: 8,640 API calls per day (6 per minute, 360 per hour)
 
-Rate limit information is available in response headers and error details.
+Rate limit information is available in response headers and error details. The SDK will automatically retry requests when rate limits are exceeded with appropriate backoff strategies.
 
 ## Subscription Plans
 
-- **Free**: 24 API calls per day, 1 per hour, up to 5 watched currencies
-- **Pro**: 1500 API calls per day, 2 per minute, up to 5 watched currencies, $15/month
-- **Platinum**: 2500 API calls per day, 3 per minute, unlimited webhooks, up to 25 watched currencies, $35/month
+### Free Plan - $0/month
+- **API Calls**: 24 per day (1 per hour)
+- **Webhooks**: Not available
+- **Support**: Email support
+- **Perfect for**: Testing and small personal projects
+
+### Pro Plan - $4.95/month
+- **API Calls**: 1,500 per day
+- **Webhooks**: Not available
+- **Support**: Email support
+- **Perfect for**: Small to medium projects
+
+### Business Plan - $9.95/month
+- **API Calls**: 4,000 per day
+- **Webhooks**: 1 webhook endpoint
+- **Support**: Email and chat support
+- **Perfect for**: Growing businesses and production apps
+
+### Platinum Plan - $24.95/month
+- **API Calls**: 8,640 per day (6 per minute)
+- **Webhooks**: 5 webhook endpoints
+- **Support**: 24/7 email, chat, and phone support
+- **Perfect for**: Enterprise applications and high-volume services
+
+### Custom Plan - Contact for pricing
+- **API Calls**: Customized based on your needs
+- **Webhooks**: Customized based on your needs
+- **Support**: Phone, email, and chat support
+- **Custom Pricing**: Tailored to your requirements
+- **Perfect for**: Organizations with specific needs
 
 ## Advanced Usage
 
@@ -438,7 +466,7 @@ import {
   CurrencyResponse,
   SupportedCurrency,
   WorxError 
-} from 'exapi-currency-sdk';
+} from 'worx-currency-sdk';
 
 // All responses are fully typed
 const client = new WorxClient({ apiToken: 'token' });
@@ -452,7 +480,7 @@ The SDK works in modern browsers with fetch support. For older browsers, include
 
 ```typescript
 // For older browsers
-import WorxClient from 'exapi-currency-sdk';
+import WorxClient from 'worx-currency-sdk';
 
 const client = new WorxClient({ apiToken: 'your-token' });
 ```
@@ -509,16 +537,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-- 📧 Email: support@worx.dev
-- 📖 Documentation: https://docs.worx.dev
-
-
-## Changelog
-
-### v1.0.0
-- Initial release
-- Full TypeScript support
-- Complete API v1 coverage
-- Rate limiting and error handling
-- Comprehensive utilities
-- Browser and Node.js, Bun and Deno support
+- 📧 Email: worx@dilshad.net

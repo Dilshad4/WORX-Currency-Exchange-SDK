@@ -21,7 +21,6 @@ import {
 
 export class WorxClient {
   private readonly apiToken: string;
-  private readonly baseUrl: string;
   private readonly timeout: number;
   private readonly retries: number;
   private readonly retryDelay: number;
@@ -32,7 +31,6 @@ export class WorxClient {
 
   constructor(config: WorxConfig) {
     this.apiToken = config.apiToken;
-    this.baseUrl = config.baseUrl || 'https://api.worx.dev';
     this.timeout = config.timeout || 30000;
     this.retries = config.retries || 3;
     this.retryDelay = config.retryDelay || 1000;
@@ -48,7 +46,7 @@ export class WorxClient {
   /**
    * Check if cached data is still valid
    */
-  private isCacheValid<T>(cacheKey: string): boolean {
+  private isCacheValid(cacheKey: string): boolean {
     if (!this.cacheEnabled) return false;
     
     const cached = this.cache.get(cacheKey);
@@ -98,7 +96,7 @@ export class WorxClient {
     options: RequestInit = {},
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<T>> {
-    const url = `${this.baseUrl}/api/v1${endpoint}`;
+    const url = `https://exchange.dilshad.net/api/v1${endpoint}`;
     const timeout = requestOptions?.timeout || this.timeout;
     const retries = requestOptions?.retries || this.retries;
     const retryDelay = requestOptions?.retryDelay || this.retryDelay;

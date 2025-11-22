@@ -205,7 +205,6 @@ interface WebhookData {
 
 declare class WorxClient {
     private readonly apiToken;
-    private readonly baseUrl;
     private readonly timeout;
     private readonly retries;
     private readonly retryDelay;

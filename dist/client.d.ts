@@ -5,7 +5,6 @@
 import { WorxConfig, RatesResponse, CurrencyResponse, WatchedCurrenciesResponse, AddWatchResponse, RemoveWatchResponse, CurrenciesResponse, SupportedCurrency, RequestOptions, PollingConfig } from './types';
 export declare class WorxClient {
     private readonly apiToken;
-    private readonly baseUrl;
     private readonly timeout;
     private readonly retries;
     private readonly retryDelay;

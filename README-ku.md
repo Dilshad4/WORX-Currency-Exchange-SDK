@@ -6,7 +6,7 @@ SDK ی تایبەتمەند بە TypeScript بۆ WORX v1 API ی گۆڕینی د�
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**🌍 پشتگیری فرە زمان**: [English](./README.md) | [العربية](./README-ar.md)
+**🌍 پشتگیری فرە زمان**: [English](https://github.com/Dilshad4/WORX-Currency-Exchange-SDK/blob/main/README.md) | [العربية](https://github.com/Dilshad4/WORX-Currency-Exchange-SDK/blob/main/README-ar.md)
 
 ## تایبەتمەندییەکان
 

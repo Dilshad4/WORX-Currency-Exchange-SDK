@@ -6,7 +6,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**🌍 الدعم متعدد اللغات**: [English](./README.md) | [کوردی](./README-ku.md)
+**🌍 الدعم متعدد اللغات**: [English](https://github.com/Dilshad4/WORX-Currency-Exchange-SDK/blob/main/README.md) | [کوردی](https://github.com/Dilshad4/WORX-Currency-Exchange-SDK/blob/main/README-ku.md)
 
 ## المميزات
 

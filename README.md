@@ -6,7 +6,7 @@ Professional TypeScript SDK for WORX v1 Currency Exchange API. Get real-time cur
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**🌍 Multi-Language Support**: [العربية](./README-ar.md) | [کوردی](./README-ku.md)
+**🌍 Multi-Language Support**: [العربية](https://github.com/Dilshad4/WORX-Currency-Exchange-SDK/blob/main/README-ar.md) | [کوردی](https://github.com/Dilshad4/WORX-Currency-Exchange-SDK/blob/main/README-ku.md)
 
 ## Features
 
